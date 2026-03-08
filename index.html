@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edinburgh Taxi Meters</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="preloader-text">Edinburgh Taxi Meters</div>
+  <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursor"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">Edinburgh<span>TM</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-gradient-orb"></div>
+  <div class="hero-gradient-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Established 1998
+    </div>
+    <h1>Precision<br><span class="highlight">Taximeter</span><br>Solutions</h1>
+    <p class="hero-sub">The one-stop shop for all taximeter supplies and services. Proudly serving Edinburgh, the Lothians, Borders and Fife with dedicated mobile service.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Contact Us
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#services" class="btn-secondary">
+        Our Services
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-number">25<span>+</span></div>
+        <div class="hero-stat-label">Years of Service</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">3</div>
+        <div class="hero-stat-label">Premium Brands</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">4</div>
+        <div class="hero-stat-label">Regions Covered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="dot"></span>Digitax</div>
+    <div class="marquee-item"><span class="dot"></span>Viking</div>
+    <div class="marquee-item"><span class="dot"></span>Epsilon</div>
+    <div class="marquee-item"><span class="dot"></span>Mobile Service</div>
+    <div class="marquee-item"><span class="dot"></span>Edinburgh</div>
+    <div class="marquee-item"><span class="dot"></span>Lothians</div>
+    <div class="marquee-item"><span class="dot"></span>Borders</div>
+    <div class="marquee-item"><span class="dot"></span>Fife</div>
+    <div class="marquee-item"><span class="dot"></span>Digitax</div>
+    <div class="marquee-item"><span class="dot"></span>Viking</div>
+    <div class="marquee-item"><span class="dot"></span>Epsilon</div>
+    <div class="marquee-item"><span class="dot"></span>Mobile Service</div>
+    <div class="marquee-item"><span class="dot"></span>Edinburgh</div>
+    <div class="marquee-item"><span class="dot"></span>Lothians</div>
+    <div class="marquee-item"><span class="dot"></span>Borders</div>
+    <div class="marquee-item"><span class="dot"></span>Fife</div>
+  </div>
+</div>
+
+<!-- BRANDS -->
+<section class="section brands-section" id="brands">
+  <div class="brands-header reveal">
+    <div class="section-label">Authorized Agents</div>
+    <h2 class="section-title">Premium Meter<br>Brands We Carry</h2>
+    <p class="section-desc">Official agents for the industry's most trusted and reliable taximeter manufacturers.</p>
+  </div>
+  <div class="brands-grid">
+    <div class="brand-card reveal">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h3"/></svg>
+      </div>
+      <div class="brand-name">Digitax</div>
+      <p class="brand-desc">Industry-leading digital taximeters with advanced fare calculation and seamless integration for modern taxi fleets.</p>
+      <div class="brand-tag">Digital Solutions</div>
+    </div>
+    <div class="brand-card reveal">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="brand-name">Viking</div>
+      <p class="brand-desc">Precision-engineered mirror taximeters combining classic reliability with modern technology. Trusted by drivers across Scotland.</p>
+      <div class="brand-tag">Mirror Meters</div>
+    </div>
+    <div class="brand-card reveal">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="brand-name">Epsilon</div>
+      <p class="brand-desc">High-performance taximeter systems designed for durability and accuracy in demanding urban environments.</p>
+      <div class="brand-tag">High Performance</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="services-layout">
+    <div class="reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Complete Taximeter Services</h2>
+      <p class="section-desc">From supply and installation to calibration and repair — everything your taxi needs, delivered with over 25 years of expertise.</p>
+      <div style="margin-top:40px;">
+        <a href="#contact" class="btn-primary">Book a Service
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="services-list">
+      <div class="service-item reveal">
+        <div class="service-num">01</div>
+        <div>
+          <div class="service-title">Meter Supply & Installation</div>
+          <p class="service-desc">Brand new taximeters from Digitax, Viking and Epsilon — professionally supplied and installed to meet all licensing requirements.</p>
+        </div>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">02</div>
+        <div>
+          <div class="service-title">Calibration & Testing</div>
+          <p class="service-desc">Precise calibration services ensuring your meter reads accurately and complies with local council tariff regulations.</p>
+        </div>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">03</div>
+        <div>
+          <div class="service-title">Repair & Maintenance</div>
+          <p class="service-desc">Expert fault diagnosis and repairs to get you back on the road quickly with minimal downtime.</p>
+        </div>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">04</div>
+        <div>
+          <div class="service-title">Mobile Service</div>
+          <p class="service-desc">We come to you — convenient on-site service at your location across Edinburgh, Lothians, Borders and Fife.</p>
+        </div>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">05</div>
+        <div>
+          <div class="service-title">Tariff Updates</div>
+          <p class="service-desc">Swift reprogramming when council tariffs change, so your meter is always up to date and compliant.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="section coverage-section" id="coverage">
+  <div class="reveal">
+    <div class="section-label">Service Areas</div>
+    <h2 class="section-title">Where We Operate</h2>
+    <p class="section-desc">Based in Midlothian with full mobile service coverage across south-east Scotland.</p>
+  </div>
+  <div class="coverage-grid">
+    <div class="coverage-card reveal">
+      <div class="coverage-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="coverage-card-name">Edinburgh</div>
+      <div class="coverage-card-sub">Capital city coverage</div>
+    </div>
+    <div class="coverage-card reveal">
+      <div class="coverage-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="coverage-card-name">Lothians</div>
+      <div class="coverage-card-sub">East, West & Midlothian</div>
+    </div>
+    <div class="coverage-card reveal">
+      <div class="coverage-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="coverage-card-name">Borders</div>
+      <div class="coverage-card-sub">Scottish Borders region</div>
+    </div>
+    <div class="coverage-card reveal">
+      <div class="coverage-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="coverage-card-name">Fife</div>
+      <div class="coverage-card-sub">Kingdom of Fife</div>
+    </div>
+  </div>
+  <div class="coverage-bg-text">SCOTLAND</div>
+</section>
+
+<!-- TEAM -->
+<section class="section team-section" id="team">
+  <div class="reveal">
+    <div class="section-label">Our Team</div>
+    <h2 class="section-title">Meet the Engineers</h2>
+    <p class="section-desc">Dedicated professionals covering every corner of our service area.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-card-accent"></div>
+      <div class="team-avatar">M</div>
+      <div class="team-role">Engineer</div>
+      <div class="team-name">Mikey</div>
+      <p class="team-area">Covers Edinburgh and the Lothians. Expert installations, calibrations and repairs across the capital region.</p>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-card-accent"></div>
+      <div class="team-avatar">J</div>
+      <div class="team-role">Engineer</div>
+      <div class="team-name">Jamie</div>
+      <p class="team-area">Covers the Scottish Borders. Dedicated mobile service bringing expert taximeter support to rural areas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Ready to Book<br>a Service?</h2>
+      <p class="section-desc">Call us or message us on WhatsApp. We'll arrange a convenient time — we come to you.</p>
+      <div class="contact-methods">
+        <a href="tel:01875818732" class="contact-method">
+          <div class="contact-method-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-method-label">Phone</div>
+            <div class="contact-method-value">01875 818 732</div>
+          </div>
+        </a>
+        <a href="https://wa.me/441875818732" class="contact-method" target="_blank">
+          <div class="contact-method-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-method-label">WhatsApp</div>
+            <div class="contact-method-value">01875 818 732</div>
+          </div>
+        </a>
+        <a href="https://www.facebook.com/search/top?q=edinburgh%20taxi%20meters" class="contact-method" target="_blank">
+          <div class="contact-method-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div>
+            <div class="contact-method-label">Facebook</div>
+            <div class="contact-method-value">Edinburgh Taxi Meters</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form-card">
+        <h3>Send Us a Message</h3>
+        <p>Fill in your details and we'll get back to you as soon as possible.</p>
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="07XXX XXXXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Required</label>
+            <select id="service">
+              <option value="" disabled selected>Select a service...</option>
+              <option value="Meter Supply & Installation">Meter Supply & Installation</option>
+              <option value="Calibration & Testing">Calibration & Testing</option>
+              <option value="Repair & Maintenance">Repair & Maintenance</option>
+              <option value="Tariff Update">Tariff Update</option>
+              <option value="General Enquiry">General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us how we can help..." rows="3"></textarea>
+          </div>
+          <button class="btn-primary form-submit" id="submitBtn" onclick="submitForm()">
+            Send Message
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-status" id="formStatus"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text" style="color:white">Edinburgh<span>TM</span></div>
+      </a>
+      <p class="footer-brand-text">Your dedicated taximeter specialists since 1998. Proudly serving the Edinburgh cab trade with reliability and expertise.</p>
+    </div>
+    <div class="footer-links-group">
+      <h4>Navigation</h4>
+      <a href="#home">Home</a>
+      <a href="#brands">Brands</a>
+      <a href="#services">Services</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-links-group">
+      <h4>Brands</h4>
+      <a href="#brands">Digitax</a>
+      <a href="#brands">Viking</a>
+      <a href="#brands">Epsilon</a>
+    </div>
+    <div class="footer-links-group">
+      <h4>Contact</h4>
+      <a href="tel:01875818732">01875 818 732</a>
+      <a href="https://wa.me/441875818732" target="_blank">WhatsApp</a>
+      <a href="https://www.facebook.com/search/top?q=edinburgh%20taxi%20meters" target="_blank">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Edinburgh Taxi Meters. All rights reserved.</div>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/search/top?q=edinburgh%20taxi%20meters" class="footer-social" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://wa.me/441875818732" class="footer-social" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="js/main.js"></script>
+<script src="js/form.js"></script>
+</body>
+</html>
