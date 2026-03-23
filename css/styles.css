@@ -562,14 +562,43 @@
 
   /* â”€â”€â”€ COVERAGE â”€â”€â”€ */
   .coverage-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../assets/edinburgh-castle-bg.jpg') center/cover no-repeat;
     color: var(--white);
     position: relative;
     overflow: hidden;
+    background: var(--black);
+  }
+  .coverage-bg-images {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .coverage-bg-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .coverage-bg-img.active {
+    opacity: 1;
+  }
+  .coverage-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  .coverage-section .reveal,
+  .coverage-section .coverage-grid,
+  .coverage-section .coverage-bg-text,
+  .coverage-section .coverage-carousel {
+    position: relative;
+    z-index: 2;
   }
   .coverage-section .section-label { color: var(--orange); }
   .coverage-section .section-title { color: var(--white); }
-  .coverage-section .section-desc { color: var(--gray-500); }
+  .coverage-section .section-desc { color: var(--gray-300); }
   .coverage-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -579,15 +608,19 @@
   }
   .coverage-card {
     padding: 36px 28px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 16px;
     transition: all 0.4s ease;
     text-align: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
-  .coverage-card:hover {
-    background: rgba(255,107,0,0.08);
-    border-color: rgba(255,107,0,0.3);
+  .coverage-card:hover,
+  .coverage-card.active {
+    background: rgba(255,107,0,0.12);
+    border-color: rgba(255,107,0,0.4);
     transform: translateY(-4px);
   }
   .coverage-card-icon {
@@ -627,6 +660,66 @@
     letter-spacing: -8px;
     pointer-events: none;
     user-select: none;
+  }
+
+  /* Coverage carousel (mobile only) */
+  .coverage-carousel {
+    display: none;
+    margin-top: 40px;
+  }
+  .coverage-carousel-track {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 16 / 10;
+  }
+  .coverage-carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .coverage-carousel-slide.active {
+    opacity: 1;
+  }
+  .coverage-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .coverage-carousel-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 16px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+  .coverage-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .coverage-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+  .coverage-dot.active {
+    background: var(--orange);
+    border-color: var(--orange);
   }
 
   /* â”€â”€â”€ TEAM â”€â”€â”€ */
@@ -984,7 +1077,10 @@
     .hero h1 { letter-spacing: -2px; }
     .hero-stats { flex-direction: column; gap: 24px; }
     .brands-grid { grid-template-columns: 1fr; }
-    .coverage-grid { grid-template-columns: 1fr; }
+    .coverage-grid { display: none; }
+    .coverage-carousel { display: block; }
+    .coverage-bg-images { display: none; }
+    .coverage-bg-overlay { display: none; }
     .team-grid { grid-template-columns: 1fr; }
     .contact-form-card { padding: 32px; }
     footer { padding: 48px 24px 24px; }
