@@ -187,34 +187,72 @@
 
 <!-- COVERAGE -->
 <section class="section coverage-section" id="coverage">
+  <!-- Background image layers -->
+  <div class="coverage-bg-images">
+    <div class="coverage-bg-img active" data-area="edinburgh" style="background-image:url('assets/edinburgh-castle-bg.jpg')"></div>
+    <div class="coverage-bg-img" data-area="lothians" style="background-image:url('assets/linlithgow-palace.jpg')"></div>
+    <div class="coverage-bg-img" data-area="borders" style="background-image:url('assets/melrose-abbey.jpg')"></div>
+    <div class="coverage-bg-img" data-area="fife" style="background-image:url('assets/the-kelpies.jpg')"></div>
+  </div>
+  <div class="coverage-bg-overlay"></div>
+
   <div class="reveal">
     <div class="section-label">Service Areas</div>
     <h2 class="section-title">Where We Operate</h2>
     <p class="section-desc">Based in Midlothian with full mobile service coverage across south-east Scotland.</p>
   </div>
+
+  <!-- Mobile carousel -->
+  <div class="coverage-carousel">
+    <div class="coverage-carousel-track">
+      <div class="coverage-carousel-slide active" data-area="edinburgh">
+        <img src="assets/edinburgh-castle-bg.jpg" alt="Edinburgh Castle">
+        <div class="coverage-carousel-label">Edinburgh</div>
+      </div>
+      <div class="coverage-carousel-slide" data-area="lothians">
+        <img src="assets/linlithgow-palace.jpg" alt="Linlithgow Palace">
+        <div class="coverage-carousel-label">Lothians</div>
+      </div>
+      <div class="coverage-carousel-slide" data-area="borders">
+        <img src="assets/melrose-abbey.jpg" alt="Melrose Abbey">
+        <div class="coverage-carousel-label">Borders</div>
+      </div>
+      <div class="coverage-carousel-slide" data-area="fife">
+        <img src="assets/the-kelpies.jpg" alt="The Kelpies">
+        <div class="coverage-carousel-label">Fife</div>
+      </div>
+    </div>
+    <div class="coverage-carousel-dots">
+      <button class="coverage-dot active" data-index="0" aria-label="Edinburgh"></button>
+      <button class="coverage-dot" data-index="1" aria-label="Lothians"></button>
+      <button class="coverage-dot" data-index="2" aria-label="Borders"></button>
+      <button class="coverage-dot" data-index="3" aria-label="Fife"></button>
+    </div>
+  </div>
+
   <div class="coverage-grid">
-    <div class="coverage-card reveal">
+    <div class="coverage-card reveal" data-area="edinburgh">
       <div class="coverage-card-icon">
         <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
       <div class="coverage-card-name">Edinburgh</div>
       <div class="coverage-card-sub">Capital city coverage</div>
     </div>
-    <div class="coverage-card reveal">
+    <div class="coverage-card reveal" data-area="lothians">
       <div class="coverage-card-icon">
         <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
       <div class="coverage-card-name">Lothians</div>
       <div class="coverage-card-sub">East, West & Midlothian</div>
     </div>
-    <div class="coverage-card reveal">
+    <div class="coverage-card reveal" data-area="borders">
       <div class="coverage-card-icon">
         <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
       <div class="coverage-card-name">Borders</div>
       <div class="coverage-card-sub">Scottish Borders region</div>
     </div>
-    <div class="coverage-card reveal">
+    <div class="coverage-card reveal" data-area="fife">
       <div class="coverage-card-icon">
         <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
