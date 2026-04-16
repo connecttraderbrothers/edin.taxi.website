@@ -104,18 +104,20 @@
     box-shadow: 0 1px 0 rgba(0,0,0,0.06);
   }
   .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: inline-block;
     text-decoration: none;
+    line-height: 0;
     background: none;
-    border: none;
-    padding: 0;
   }
-  .nav-logo img {
-    background: none;
-    border: none;
-    padding: 0;
+  .nav-logo-img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+  .footer-logo-img {
+    height: 48px;
+    width: auto;
+    display: block;
   }
   .nav-logo-icon {
     width: 40px;
