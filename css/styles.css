@@ -481,8 +481,30 @@
 
   /* â”€â”€â”€ BRANDS â”€â”€â”€ */
   .brands-section {
-    background: var(--white);
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
   }
+  .brands-bg-image {
+    position: absolute;
+    inset: 0;
+    background: url('../assets/brands-bg.jpg') center/cover no-repeat;
+    z-index: 0;
+  }
+  .brands-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  .brands-section .brands-header,
+  .brands-section .brands-grid {
+    position: relative;
+    z-index: 2;
+  }
+  .brands-section .section-label { color: var(--orange); }
+  .brands-section .section-title { color: var(--white); }
+  .brands-section .section-desc { color: var(--gray-300); }
   .brands-header {
     max-width: 600px;
     margin-bottom: 64px;
@@ -496,11 +518,14 @@
   .brand-card {
     position: relative;
     padding: 48px 36px;
-    background: var(--white);
-    border: 1px solid var(--gray-100);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
     transition: all 0.4s ease;
     overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--white);
   }
   .brand-card::before {
     content: '';
@@ -514,9 +539,10 @@
     transition: transform 0.4s ease;
   }
   .brand-card:hover {
-    border-color: var(--orange);
+    border-color: rgba(255,107,0,0.4);
+    background: rgba(255,107,0,0.12);
     transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(255,107,0,0.08);
+    box-shadow: 0 20px 60px rgba(255,107,0,0.15);
   }
   .brand-card:hover::before { transform: scaleX(1); }
   .brand-icon {
@@ -548,20 +574,21 @@
   }
   .brand-desc {
     font-size: 15px;
-    color: var(--gray-500);
+    color: var(--gray-300);
     line-height: 1.7;
   }
   .brand-tag {
     display: inline-block;
     margin-top: 20px;
     padding: 6px 14px;
-    background: var(--gray-100);
+    background: rgba(255,107,0,0.12);
+    border: 1px solid rgba(255,107,0,0.2);
     border-radius: 100px;
     font-family: 'Space Mono', monospace;
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--gray-700);
+    color: var(--orange);
   }
 
   /* â”€â”€â”€ SERVICES â”€â”€â”€ */
@@ -582,78 +609,90 @@
     animation: orbFloat 9s ease-in-out infinite;
     pointer-events: none;
   }
-  .services-section .services-layout,
-  .services-section .reveal {
+  .services-section .services-header,
+  .services-section .services-grid {
     position: relative;
     z-index: 1;
   }
-  .services-layout {
+  .services-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 64px;
+  }
+  .services-header .section-desc {
+    margin: 0 auto;
+  }
+  .services-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     max-width: 1200px;
+    margin: 0 auto;
   }
-  .services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .service-item {
-    display: flex;
-    gap: 20px;
-    padding: 28px;
+  .service-card {
+    position: relative;
+    padding: 40px 32px;
     background: var(--white);
-    border-radius: 16px;
     border: 1px solid transparent;
-    transition: all 0.3s ease;
-    cursor: default;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    overflow: hidden;
   }
-  .service-item:hover {
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover {
     border-color: var(--orange);
-    transform: translateX(8px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(255,107,0,0.08);
   }
-  .service-num {
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card-num {
     font-family: 'Space Mono', monospace;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--orange);
     font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
   }
-  .service-icon {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
+  .service-card-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 24px;
     background: var(--orange-glow);
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
   }
-  .service-icon svg {
-    width: 22px;
-    height: 22px;
+  .service-card-icon svg {
+    width: 26px;
+    height: 26px;
     stroke: var(--orange);
+    transition: stroke 0.3s ease;
   }
-  .service-item:hover .service-icon {
-    background: var(--orange);
-  }
-  .service-item:hover .service-icon svg {
-    stroke: var(--white);
-  }
-  .service-title {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 6px;
+  .service-card:hover .service-card-icon { background: var(--orange); }
+  .service-card:hover .service-card-icon svg { stroke: var(--white); }
+  .service-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
     letter-spacing: -0.3px;
   }
-  .service-desc {
+  .service-card-desc {
     font-size: 14px;
     color: var(--gray-500);
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   /* â”€â”€â”€ COVERAGE â”€â”€â”€ */
@@ -1228,7 +1267,7 @@
   @media (max-width: 1024px) {
     .brands-grid { grid-template-columns: 1fr 1fr; }
     .coverage-grid { grid-template-columns: 1fr 1fr; }
-    .services-layout { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
     .contact-layout { grid-template-columns: 1fr; gap: 48px; }
   }
   @media (max-width: 768px) {
@@ -1246,6 +1285,7 @@
     .hero h1 { letter-spacing: -2px; }
     .hero-stats { flex-direction: column; gap: 24px; justify-content: center; align-items: center; }
     .brands-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
     .coverage-grid { display: none; }
     .coverage-carousel { display: block; }
     .coverage-bg-images { display: none; }
