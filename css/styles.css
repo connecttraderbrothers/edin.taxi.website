@@ -382,6 +382,41 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* Hero scroll indicator */
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 3s forwards;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .hero-scroll-indicator.faded { opacity: 0 !important; }
+  .hero-scroll-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+  }
+  .hero-scroll-arrow {
+    width: 18px;
+    height: 18px;
+    stroke: var(--orange);
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(6px); opacity: 1; }
+  }
+
   /* â”€â”€â”€ MARQUEE â”€â”€â”€ */
   .marquee-section {
     padding: 32px 0;
@@ -532,6 +567,38 @@
   /* â”€â”€â”€ SERVICES â”€â”€â”€ */
   .services-section {
     background: var(--gray-100);
+    position: relative;
+    overflow: hidden;
+  }
+  .services-bg-text {
+    position: absolute;
+    top: 40px;
+    right: -40px;
+    font-size: 200px;
+    font-weight: 900;
+    color: rgba(10,10,10,0.03);
+    letter-spacing: -8px;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 0;
+  }
+  .services-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+    bottom: -120px;
+    left: -120px;
+    z-index: 0;
+    animation: orbFloat 9s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .services-section .services-layout,
+  .services-section .reveal {
+    position: relative;
+    z-index: 1;
   }
   .services-layout {
     display: grid;
@@ -567,6 +634,28 @@
     font-weight: 700;
     flex-shrink: 0;
     margin-top: 2px;
+  }
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: var(--orange-glow);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  .service-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--orange);
+  }
+  .service-item:hover .service-icon {
+    background: var(--orange);
+  }
+  .service-item:hover .service-icon svg {
+    stroke: var(--white);
   }
   .service-title {
     font-size: 17px;
@@ -745,6 +834,50 @@
   /* â”€â”€â”€ TEAM â”€â”€â”€ */
   .team-section {
     background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .team-bg-text {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    font-size: 200px;
+    font-weight: 900;
+    color: rgba(10,10,10,0.03);
+    letter-spacing: -8px;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 0;
+  }
+  .team-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+    animation: orbFloat 10s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .team-orb-2 {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,0,0.06) 0%, transparent 70%);
+    bottom: 40px;
+    right: 30%;
+    z-index: 0;
+    animation: orbFloat 12s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+  .team-section .reveal,
+  .team-section .team-grid {
+    position: relative;
+    z-index: 1;
   }
   .team-grid {
     display: grid;
@@ -996,6 +1129,38 @@
     color: var(--white);
     padding: 64px 48px 32px;
     border-top: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .footer-bg-text {
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    letter-spacing: -6px;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 0;
+  }
+  .footer-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,0,0.08) 0%, transparent 70%);
+    top: -200px;
+    left: -150px;
+    z-index: 0;
+    pointer-events: none;
+    animation: orbFloat 11s ease-in-out infinite;
+  }
+  footer .footer-top,
+  footer .footer-bottom {
+    position: relative;
+    z-index: 1;
   }
   .footer-top {
     display: flex;
@@ -1059,6 +1224,8 @@
   .footer-social:hover {
     background: var(--orange);
     border-color: var(--orange);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255,107,0,0.25);
   }
   .footer-social svg {
     width: 18px;
@@ -1111,4 +1278,12 @@
     .contact-form-card { padding: 32px; }
     footer { padding: 48px 24px 24px; }
     .cursor-dot { display: none; }
+    .services-bg-text,
+    .team-bg-text,
+    .footer-bg-text { font-size: 96px; letter-spacing: -4px; }
+    .services-orb,
+    .team-orb,
+    .team-orb-2,
+    .footer-orb { width: 320px; height: 320px; }
+    .hero-scroll-indicator { display: none; }
   }
