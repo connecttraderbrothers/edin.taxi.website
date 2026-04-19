@@ -570,19 +570,6 @@
     position: relative;
     overflow: hidden;
   }
-  .services-bg-text {
-    position: absolute;
-    top: 40px;
-    right: -40px;
-    font-size: 200px;
-    font-weight: 900;
-    color: rgba(10,10,10,0.03);
-    letter-spacing: -8px;
-    pointer-events: none;
-    user-select: none;
-    line-height: 1;
-    z-index: 0;
-  }
   .services-orb {
     position: absolute;
     width: 500px;
@@ -837,19 +824,6 @@
     position: relative;
     overflow: hidden;
   }
-  .team-bg-text {
-    position: absolute;
-    bottom: -30px;
-    left: -30px;
-    font-size: 200px;
-    font-weight: 900;
-    color: rgba(10,10,10,0.03);
-    letter-spacing: -8px;
-    pointer-events: none;
-    user-select: none;
-    line-height: 1;
-    z-index: 0;
-  }
   .team-orb {
     position: absolute;
     width: 500px;
@@ -919,10 +893,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--white);
     margin-bottom: 24px;
+  }
+  .team-avatar svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--white);
   }
   .team-name {
     font-size: 22px;
@@ -1278,8 +1254,6 @@
     .contact-form-card { padding: 32px; }
     footer { padding: 48px 24px 24px; }
     .cursor-dot { display: none; }
-    .services-bg-text,
-    .team-bg-text,
     .footer-bg-text { font-size: 96px; letter-spacing: -4px; }
     .services-orb,
     .team-orb,
