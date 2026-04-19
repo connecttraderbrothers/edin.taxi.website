@@ -17,9 +17,37 @@ document.querySelectorAll('a, button, .brand-card, .service-item, .coverage-card
 });
 
 // â”€â”€â”€ NAV SCROLL â”€â”€â”€
+const heroScrollIndicator = document.querySelector('.hero-scroll-indicator');
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+  if (heroScrollIndicator) {
+    heroScrollIndicator.classList.toggle('faded', window.scrollY > 120);
+  }
 });
+
+// â”€â”€â”€ ANIMATED STAT COUNTERS â”€â”€â”€
+function animateCount(el) {
+  const target = Number(el.dataset.target);
+  const duration = 1600;
+  const start = performance.now();
+  function tick(now) {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(target * eased);
+    if (t < 1) requestAnimationFrame(tick);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(tick);
+}
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-count').forEach(el => statObserver.observe(el));
 
 // â”€â”€â”€ REVEAL ON SCROLL â”€â”€â”€
 const observer = new IntersectionObserver((entries) => {
