@@ -75,51 +75,48 @@ coverageCards.forEach(card => {
   });
 });
 
-// â"€â"€â"€ COVERAGE CAROUSEL (MOBILE) â"€â"€â"€
+// â"€â"€â"€ COVERAGE CAROUSEL (SLIDING GALLERY) â"€â"€â"€
+const carouselInner = document.querySelector('.coverage-carousel-inner');
 const carouselSlides = document.querySelectorAll('.coverage-carousel-slide');
 const carouselDots = document.querySelectorAll('.coverage-dot');
+const carouselTrack = document.querySelector('.coverage-carousel-track');
+const carouselPrev = document.querySelector('.coverage-arrow-prev');
+const carouselNext = document.querySelector('.coverage-arrow-next');
 let currentSlide = 0;
 
 function goToSlide(index) {
-  carouselSlides.forEach(s => s.classList.remove('active'));
-  carouselDots.forEach(d => d.classList.remove('active'));
-  carouselSlides[index].classList.add('active');
-  carouselDots[index].classList.add('active');
-  currentSlide = index;
+  const total = carouselSlides.length;
+  currentSlide = (index + total) % total; // wrap around
+  if (carouselInner) {
+    carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+  carouselDots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
 }
 
 carouselDots.forEach(dot => {
   dot.addEventListener('click', () => goToSlide(Number(dot.dataset.index)));
 });
 
+if (carouselPrev) carouselPrev.addEventListener('click', () => goToSlide(currentSlide - 1));
+if (carouselNext) carouselNext.addEventListener('click', () => goToSlide(currentSlide + 1));
+
 // Swipe support
-const carouselTrack = document.querySelector('.coverage-carousel-track');
 let touchStartX = 0;
+let touchStartY = 0;
 
 if (carouselTrack) {
   carouselTrack.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
   }, { passive: true });
 
   carouselTrack.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0 && currentSlide < carouselSlides.length - 1) goToSlide(currentSlide + 1);
-      else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+    const diffX = touchStartX - e.changedTouches[0].clientX;
+    const diffY = touchStartY - e.changedTouches[0].clientY;
+    // Only treat as horizontal swipe if mostly horizontal movement
+    if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) goToSlide(currentSlide + 1);
+      else goToSlide(currentSlide - 1);
     }
   }, { passive: true });
-
-  // Tap on slide to show as section background (click changes bg briefly)
-  carouselSlides.forEach(slide => {
-    slide.addEventListener('click', () => {
-      const area = slide.dataset.area;
-      const section = document.querySelector('.coverage-section');
-      const img = slide.querySelector('img');
-      if (img) {
-        section.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${img.src}')`;
-        section.style.backgroundSize = 'cover';
-        section.style.backgroundPosition = 'center';
-      }
-    });
-  });
 }

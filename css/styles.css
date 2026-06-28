@@ -797,26 +797,32 @@
     user-select: none;
   }
 
-  /* Coverage carousel (mobile only) */
+  /* Coverage carousel (sliding gallery) */
   .coverage-carousel {
     display: none;
     margin-top: 40px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
   .coverage-carousel-track {
     position: relative;
     width: 100%;
     overflow: hidden;
     border-radius: 16px;
-    aspect-ratio: 16 / 10;
+    touch-action: pan-y;
+  }
+  .coverage-carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
   }
   .coverage-carousel-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  .coverage-carousel-slide.active {
-    opacity: 1;
+    position: relative;
+    flex: 0 0 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
   }
   .coverage-carousel-slide img {
     width: 100%;
@@ -826,16 +832,45 @@
   }
   .coverage-carousel-label {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 24px 16px 16px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    font-size: 20px;
-    font-weight: 700;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(28px, 7vw, 44px);
+    font-weight: 800;
     color: var(--white);
-    letter-spacing: -0.3px;
+    letter-spacing: -0.5px;
+    text-align: center;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.55);
+    pointer-events: none;
   }
+  .coverage-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease;
+    z-index: 2;
+  }
+  .coverage-arrow:hover { background: var(--orange); }
+  .coverage-arrow svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--white);
+  }
+  .coverage-arrow-prev { left: 12px; }
+  .coverage-arrow-next { right: 12px; }
   .coverage-carousel-dots {
     display: flex;
     justify-content: center;
@@ -855,6 +890,7 @@
   .coverage-dot.active {
     background: var(--orange);
     border-color: var(--orange);
+    transform: scale(1.2);
   }
 
   /* â”€â”€â”€ TEAM â”€â”€â”€ */
